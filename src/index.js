@@ -8,7 +8,7 @@ dotenv.config({path: './.env'})
 connectDb()
 .then(() => {
     app.listen(process.env.PORT || 8080, () => {
-        console.log(`⚙️  Server is running on http://localhost:${process.env.PORT}`)
+        console.log(`⚙️  Server is running on http://localhost:${process.env.PORT}/api/v1/`)
     })
 })
 .catch((err) => {

@@ -24,11 +24,11 @@ app.use("/api/v1/users", userRouter)
 
 // http://localhost:5500/api/v1/users/register
 
-app.get("/",(req, res) => {
+app.get("/api/v1/",(req, res) => {
     // res.status(200).json({
     //     message : "Welcome to the Backend Server"
     // })
-    res.json(`Welcome to the Backend, Server running on http://localhost:${process.env.PORT}`)
+    res.json(`Welcome to the Backend, Server running on http://localhost:${process.env.PORT}/api/v1/`)
 })
 
 export {app}
