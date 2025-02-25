@@ -5,6 +5,7 @@ import {uploadOnCloudinary} from "../utils/cloudinary.js"
 import {ApiResponse} from '../utils/ApiResponse.js'
 import jwt from "jsonwebtoken";
 import mongoose from 'mongoose'
+import {sendErrorResponse} from '../utils/ApiError.js'
 
 const generateAccessAndRefreshTokens = async(userId) => {
     try {
@@ -121,11 +122,11 @@ const loginUser = asyncHandler(async(req, res) => {
 
     // req body -> data
     const {email, username, password} = req.body
-    console.log(email);
+    // console.log(email);
 
     // username or email
     if (!username && !email) {
-        throw new ApiError(400, "username or email is required")
+        return sendErrorResponse(res, 400, "Either username or email is required");
     }
     
     // Here is an alternative of above code based on logic discussed in video:
